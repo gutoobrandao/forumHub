@@ -10,10 +10,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     Usuario findByEmail(String email);
 
     @Query("""
-            SELECT u.ativo
-            FROM Usuario u
-            WHERE
-                u.id = :id
+                SELECT u
+                FROM Usuario u
+                WHERE u.id = :id AND u.ativo = true
             """)
     Usuario findReferenceById(Long id);
 

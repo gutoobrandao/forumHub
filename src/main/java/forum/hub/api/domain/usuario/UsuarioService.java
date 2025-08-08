@@ -69,7 +69,7 @@ public class UsuarioService {
         if (usuario.getAtivo()) {
             usuario.deletar();
         } else {
-            throw new EntityNotFoundException("Usuário já está inativo.");
+            throw new ValidacaoException("Usuário já está inativo.");
         }
     }
 
