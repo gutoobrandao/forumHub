@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,14 +21,10 @@ public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Setter
     private String nome;
-    @Setter
     @Column(unique = true)
     private String email;
-    @Setter
     private String senha;
-    @Setter
     private Boolean ativo;
 
     public Usuario(String nome, String email, String senha) {
