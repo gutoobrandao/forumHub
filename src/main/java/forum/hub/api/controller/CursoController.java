@@ -43,10 +43,10 @@ public class CursoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> atualizarCurso(@PathVariable Long id, @RequestBody @Valid DadosAtualizarCurso dados) {
+    public ResponseEntity<DadosCurso> atualizarCurso(@PathVariable Long id, @RequestBody @Valid DadosAtualizarCurso dados) {
         var curso = cursoService.atualizarCurso(id, dados);
 
-        return ResponseEntity.ok().body("Curso atualizado com sucesso.");
+        return ResponseEntity.ok(curso);
     }
 
     @DeleteMapping("/{id}")

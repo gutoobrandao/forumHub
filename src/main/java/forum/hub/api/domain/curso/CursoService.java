@@ -38,12 +38,11 @@ public class CursoService {
     }
 
     @Transactional
-    public DadosAtualizarCurso atualizarCurso(Long id, DadosAtualizarCurso dados) {
+    public DadosCurso atualizarCurso(Long id, DadosAtualizarCurso dados) {
         var curso = repository.findReferenceById(id);
         curso.atualizarCurso(dados.nome(), dados.categoria());
-        repository.save(curso);
 
-        return new DadosAtualizarCurso(curso);
+        return new DadosCurso(curso);
     }
 
     @Transactional

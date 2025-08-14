@@ -43,10 +43,10 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> atualizarUsuario(@PathVariable Long id, @RequestBody @Valid DadosAtualizarUsuario dados) {
-        usuarioService.atualizarUsuario(id, dados);
+    public ResponseEntity<DadosUsuario> atualizarUsuario(@PathVariable Long id, @RequestBody @Valid DadosAtualizarUsuario dados) {
+        var usuario = usuarioService.atualizarUsuario(id, dados);
 
-        return ResponseEntity.ok().body("Usuário atualizado com sucesso.");
+        return ResponseEntity.ok(usuario);
     }
 
     @DeleteMapping("/{id}")
