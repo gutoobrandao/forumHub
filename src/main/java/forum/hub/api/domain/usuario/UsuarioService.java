@@ -49,7 +49,7 @@ public class UsuarioService {
 
     @Transactional
     public DadosUsuario atualizarUsuario(Long id, DadosAtualizarUsuario dados) {
-        var usuario = validaUsuario(id);
+        var usuario = usuarioLogadoService.validaUsuario(id);
 
         String senhaCriptografada = null;
 
@@ -64,22 +64,12 @@ public class UsuarioService {
 
     @Transactional
     public void deletarUsuario(Long id) {
-        var usuario = validaUsuario(id);
+        var usuario = usuarioLogadoService.validaUsuario(id);
 
         if (usuario.getAtivo()) {
             usuario.deletar();
         } else {
             throw new ValidacaoException("Usuário já está inativo.");
         }
-    }
-
-    public Usuario validaUsuario(Long id) {
-        Long idUsuarioLogado = usuarioLogadoService.getUsuarioLogado().getId();
-
-        if (!idUsuarioLogado.equals(id)) {
-            throw new ValidacaoException("Você só pode atualizar seus próprios dados.");
-        }
-
-        return repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado."));
     }
 }
