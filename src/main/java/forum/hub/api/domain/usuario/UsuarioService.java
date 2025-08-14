@@ -41,7 +41,7 @@ public class UsuarioService {
         return new DadosUsuario(usuario);
     }
 
-    public Page<DadosUsuario> listarUsuarios(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
+    public Page<DadosUsuario> listarUsuarios(Pageable paginacao) {
         var page = repository.findAllByAtivoTrue(paginacao).map(DadosUsuario::new);
 
         return page;

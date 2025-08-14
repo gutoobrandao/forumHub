@@ -34,7 +34,7 @@ public class CursoService {
         return new DadosCurso(curso);
     }
 
-    public Page<DadosCurso> listarCursos(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
+    public Page<DadosCurso> listarCursos(Pageable paginacao) {
         return repository.findAllByAtivoTrue(paginacao).map(DadosCurso::new);
     }
 
