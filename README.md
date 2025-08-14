@@ -108,7 +108,7 @@ Resposta esperada: **201 Created** + JSON com o **token JWT**.
 Exemplo de JSON:
 
 ```json
-​{
+{​
   "nome": "Como ser Dev Supremo em 1 mês",
   "categoria": "Desenvolvimento"
 }
