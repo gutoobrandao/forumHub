@@ -25,7 +25,7 @@ public class UsuarioLogadoService {
         Usuario usuarioLogado = getUsuarioLogado();
 
         if (!usuarioLogado.getId().equals(id)) {
-            throw new ValidacaoException("Você só pode atualizar seus próprios dados.");
+            throw new ValidacaoException("Você só pode atualizar seus próprios dados ou se é o autor do tópico ou resposta.");
         }
 
         return usuarioLogado;
