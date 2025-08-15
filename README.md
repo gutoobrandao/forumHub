@@ -2,6 +2,16 @@
 
 Projeto desenvolvido como desafio da **Alura**, com backend em **Java** e **Spring Boot**, utilizando **Spring Security** e autenticação via **JWT**. O sistema permite gerenciar usuários, cursos, tópicos e respostas em um fórum.
 
+# Tecnologias
+
+- Java 21
+- Spring Boot
+- Spring Security + JWT
+- MySQL
+- Flyway Migration
+- Maven
+- Lombok
+
 ---
 
 ## Configuração do banco de dados
@@ -21,7 +31,7 @@ Pronto! Agora o projeto consegue acessar suas variáveis de ambiente.
 
 ## Autenticação
 
-O projeto utiliza **Spring Security** com **JWT** de 8 horas de duração.
+O projeto utiliza **Spring Security** com **JWT** de 2 horas de duração.
 
 - Os endpoints de **cadastro** e **login** são públicos.
 - Todos os outros endpoints exigem token JWT no **Bearer Token**.
